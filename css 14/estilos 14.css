@@ -1,0 +1,122 @@
+@keyframes loco{
+    0%{background: aqua; transform:rotate(10deg) scale(1,1);}
+    20%{background: rgb(11, 58, 102); transform:rotate(-10deg) scale(1.5,1.5);}
+    40%{background: rgb(98, 24, 158); transform:rotate(10deg) scale(1,1);}
+    60%{background: rgb(255, 0, 200); transform:rotate(-10deg) scale(1.5,1.5);}
+    80%{background: aqua; transform:rotate(20deg) scale(1,1);}
+    90%{background: rgb(0, 255, 115); transform:rotate(-10deg) scale(1.5,1.5);}
+    100%{background: aqua; transform:rotate(10deg) scale(1,1);}
+}
+
+
+
+.contenedor{
+    align-items: center;
+    border: solid 0.1em;
+    display:flex;
+    height: 500px;
+    justify-content: space-around;
+    }
+    
+.contenedor div{
+    border: solid 0.1em;
+    height: 400px;
+    width: 20%;
+}
+
+.contenedor div:hover{
+    background-size: 100% 100%
+}
+
+.cupon{
+    display: none;
+    font-size: 48px;
+    font-style: oblique;
+    font-weight: bolder;
+    text-align: center;
+}
+.hija1{
+    background: url(Lex.jpg);
+    background: cover;
+}
+.hija2{
+    background: url(booster.jpg);
+    background: cover;
+}
+.hija3{
+    background: url(martian.jpg);
+    background: cover;
+}
+.hija4{
+    background: url(atom.jpg);
+    background: cover;
+}
+
+.imprimir{
+    background:gold url("Lex.jpg") no-repeat 20px 5px;
+    background-size: 35px 35px;
+    border-radius: 1em;
+    box-shadow: 0.1em 0.2em 0.3em rgba(0,0,0,0.5);
+    display: block;
+    font-style: italic;
+    font-size: 24px;
+    margin: 1em auto;
+    padding: 0.4em;
+    width: 30%;
+}
+
+.imprimir:hover{
+    cursor: cell;
+}
+
+@media print{
+    body{
+        background: silver;
+    }
+    .hija,.hija3{
+        display: none;
+    }
+
+    .contenedor div{
+        width: 45%;
+    }
+
+    .contenedor{
+        background-color: goldenrod; /*paraque solo aplique el color*/
+        flex-direction: column;
+    }
+    .cupon{
+        display: block;
+    }
+    .imprimir{
+        display: none;
+    }
+}
+/* en linea 93 esta indicando que en horizontal cambie a fondo aguamarina*/
+@media screen and (orientation:landscape){
+    body{
+        background:aqua;
+    }
+}
+@media screen and (orientation:portrait){
+    body{
+        background:orangered;
+    }
+}
+/* en linea 104 esta indicando que al llegar a 700px de tamaño la pantalla, cambien las imagenes*/
+@media screen and ( max-width:700px ){
+    .contenedor{
+        /* align-items:justify; */
+        flex-direction: column;
+        height: auto;
+    }
+    .contenedor div{
+        filter: invert(0);
+        height: 400px;
+        margin-top: 2em;
+        width: 100%;
+    }
+    .contenedor .hija1{
+        animation: loco alternate infinite 5s;
+    }
+}
